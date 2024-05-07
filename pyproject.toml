@@ -1,0 +1,14 @@
+[project]
+name = "xai-multion"
+version = "0.1.0"
+description = "A collection of Xircuits components for interfacing with MultiOn."
+authors = [{ name = "XpressAI", email = "eduardo@xpress.ai" }]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/XpressAI/xai-multion"
+keywords = ["xircuits", "multion"]
+
+# Xircuits-specific configurations
+[tool.xircuits]
+default_example_path = "multion_example.xircuits"
+requirements_path = "requirements.txt"
