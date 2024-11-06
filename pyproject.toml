@@ -10,5 +10,5 @@ keywords = ["xircuits", "multion"]
 
 # Xircuits-specific configurations
 [tool.xircuits]
-default_example_path = "multion_example.xircuits"
+default_example_path = "examples/multion_example.xircuits"
 requirements_path = "requirements.txt"

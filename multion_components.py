@@ -8,6 +8,13 @@ from multion.client import MultiOn
 
 @xai_component
 class MultiOnLogin(Component):
+    """
+    A component that initializes a MultiOn client using the provided API key.
+
+    ## Inputs
+    - `api_key`: The API key used to authenticate with the MultiOn service.
+
+    """
     api_key: InArg[secret]
     
     def execute(self, ctx):
@@ -18,6 +25,24 @@ class MultiOnLogin(Component):
         
 @xai_component
 class MultiOnNewSession(Component):
+    """
+    A component that starts a new browsing session with MultiOn.
+
+    ## Inputs
+    - `input_prompt`: The command or prompt for browsing.
+    - `url`: The URL to browse.
+    - `local`: A boolean flag indicating if the browsing should be local.
+    - `max_steps`: The maximum number of steps for browsing.
+
+    ## Outputs
+    - `session_id`: The ID of the newly created session.
+    - `out_message`: The message returned from the browsing session.
+    - `status`: The status of the browsing session.
+    - `final_url`: The final URL after browsing.
+    - `screenshot_url`: The URL of the screenshot taken during the session.
+    - `step_count`: The number of steps completed during browsing.
+    - `processing_time`: The time taken for processing the session.
+    """
     input_prompt: InCompArg[str]
     url: InCompArg[str]
     local: InCompArg[bool]
@@ -53,6 +78,24 @@ class MultiOnNewSession(Component):
 
 @xai_component
 class MultiOnStepSession(Component):
+    """
+    A component that continues a browsing session in MultiOn.
+
+    ## Inputs
+    - `input_prompt`: The command or prompt for browsing.
+    - `session_id`: The ID of the existing session to continue.
+    - `max_steps`: The maximum number of steps for browsing.
+
+    ## Outputs
+    - `session_id`: The ID of the session being continued.
+    - `out_message`: The message returned from the browsing session.
+    - `status`: The status of the browsing session.
+    - `final_url`: The final URL after browsing.
+    - `screenshot_url`: The URL of the screenshot taken during the session.
+    - `step_count`: The number of steps completed during browsing.
+    - `processing_time`: The time taken for processing the session.
+    """
+    
     input_prompt: InCompArg[str]
     session_id: InCompArg[str]
     max_steps: InArg[int]
