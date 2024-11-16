@@ -8,7 +8,12 @@ readme = "README.md"
 repository = "https://github.com/XpressAI/xai-multion"
 keywords = ["xircuits", "multion"]
 
+dependencies = [
+    "multion==1.3.8",
+    "requests"
+]
+
 # Xircuits-specific configurations
 [tool.xircuits]
-default_example_path = "examples/multion_example.xircuits"
+default_example_path = "multion_example.xircuits"
 requirements_path = "requirements.txt"
