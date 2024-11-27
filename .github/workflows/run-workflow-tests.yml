@@ -46,8 +46,6 @@ jobs:
         else
           echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
         fi
-        echo "MULTION_EMAIL=${{ secrets.MULTION_EMAIL }}" >> $GITHUB_ENV
-        echo "MULTION_PASSWORD=${{ secrets.MULTION_PASSWORD }}" >> $GITHUB_ENV
 
     - name: List Xircuits
       run: xircuits list
@@ -90,10 +88,10 @@ jobs:
         TEST_FILES=$(echo "$TEST_XIRCUITS" | tr '\n' ' ')
         echo "Repository: $LIBRARY_NAME" > $LOG_FILE
         echo "Branch: $BRANCH_NAME" >> $LOG_FILE
-        
+
         # Get the server token for GitHub secret if any
         API_KEY="${{ secrets.API_KEY }}"
-
+        
         echo -e "Testing Files:\n$TEST_FILES" >> $LOG_FILE
         IFS=' ' read -r -a FILE_ARRAY <<< "$TEST_FILES"
         FAIL=0
